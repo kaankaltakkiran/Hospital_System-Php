@@ -39,6 +39,7 @@ foreach($doctors as $doctor){
   </ul>
   <div class='card-body'>
   <a href='doctor.php?id={$doctor['doctorid']}' class='card-link btn btn-danger'>Doctor Cv</a>
+  <a href='request.php' class='card-link btn btn-success'>Appointment</a>
   </div>
 </div>
   

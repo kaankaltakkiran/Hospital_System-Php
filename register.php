@@ -32,6 +32,18 @@
   <input type="password" name="form_password"class="form-control">
   <label>Password</label>
 </div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="gender" value="Male" >
+  <label class="form-check-label" >
+  Male
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="gender" value="Female" >
+  <label class="form-check-label" >
+  Female
+  </label>
+</div>
 
                   <button type="submit" name="submit" class="btn btn-primary">Register</button>   	
      </form>
@@ -46,13 +58,15 @@ if(isset($_POST['form_email'])){
   require_once('db.php');
   $name = $_POST['form_name'];
   $email = $_POST['form_email'];
+  $gender = $_POST['gender'];
   $password = $_POST['form_password'];
   $password = password_hash($password, PASSWORD_DEFAULT);   
 
-  $sql = "INSERT INTO users (username,useremail,userpassword) VALUES (:form_name,:form_email,'$password')";
+  $sql = "INSERT INTO users (username,useremail,gender,userpassword) VALUES (:form_name,:form_email,:gender,'$password')";
   $SORGU = $DB->prepare($sql);
   $SORGU->bindParam(':form_name',  $name);
   $SORGU->bindParam(':form_email',  $email);
+  $SORGU->bindParam(':gender',  $gender);
 
   $SORGU->execute();
 
