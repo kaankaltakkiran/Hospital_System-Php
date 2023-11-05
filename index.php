@@ -8,7 +8,43 @@
   </head>
   <body>
   <div class="container">
-  <div class="row justify-content-center mt-3">
+<div class="row">
+  <div class="col-6">
+  <h1 class="text-danger">Doctors</h1>
+  <?php
+require_once 'db.php';
+
+$SORGU = $DB->prepare("SELECT * FROM doctors");
+$SORGU->execute();
+$doctors = $SORGU->fetchAll(PDO::FETCH_ASSOC);
+
+foreach($doctors as $doctor){
+  echo"
+  <div class='card' style='width: 18rem;'>
+  <img src='uploads/{$doctor['doctorimg']}' class='card-img-top' alt='...'>
+  <div class='card-body'>
+    <h5 class='card-title'>{$doctor['doctorjob']}</h5>
+    <p class='card-text'>{$doctor['doctorname']}</p>
+  </div>
+  <ul class='list-group list-group-flush'>
+    <li class='list-group-item'>{$doctor['doctorabout']}</li>
+    <li class='list-group-item'>{$doctor['doctoremail']}</li>
+    <li class='list-group-item'>{$doctor['doctorphone']}</li>
+  </ul>
+  <div class='card-body'>
+  <a href='doctor.php?id={$doctor['doctorid']}' class='card-link btn btn-danger'>Doctor Cv</a>
+  </div>
+</div>
+  
+  
+  ";
+}
+
+  ?>
+
+</div>
+</div>
+<div class="row justify-content-center mt-3">
   <div class="col-6">
 
 <form method="POST" enctype="multipart/form-data">
@@ -39,7 +75,6 @@
                   <button type="submit" name="submit" class="btn btn-primary">Add Doctor</button>   	
      </form>
      </div>
-</div>
 </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
