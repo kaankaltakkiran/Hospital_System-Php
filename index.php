@@ -17,6 +17,7 @@ require 'loginControl.php';
 <div class="row">
   <div class="col-6">
   <h1 class="text-danger">Doctors</h1>
+  <a href='requestManagement.php' class='btn btn-danger'>Request list</a>
   <?php
 require_once 'db.php';
 
