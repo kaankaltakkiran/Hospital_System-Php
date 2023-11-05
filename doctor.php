@@ -1,5 +1,6 @@
 <?php
 require_once('db.php');
+require 'loginControl.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +32,7 @@ echo"
 <p>Doctor Phone: {$doctors[0]['doctorphone']}</p>
 </div>
 <div class='col-6'>
-<img src='uploads/{$doctors[0]['doctorimg']}' class='img-fluid' alt='...'>
+<img src='uploads/{$doctors[0]['doctorimg']}' class='img-fluid mt-3' alt='...'>
 </div>
 </div>
 </div>
