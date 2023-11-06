@@ -35,6 +35,9 @@ if (isset($_POST['talepid_form'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
+  <?php
+  require_once('navbar.php');
+?>
   <div class="container">
 <div class='row text-center'>
   <h1 class='alert alert-primary mt-3'>Request Management</h1>
@@ -58,14 +61,13 @@ if (isset($_POST['talepid_form'])) {
     <?php
 
     $SORGU = $DB->prepare("
-    SELECT requests.*,
-     users.username,
-      users.useremail,
-       users.gender,
-        doctors.doctorid
-         FROM requests,users,doctors 
-         WHERE requests.requesting = users.userid AND 
-         doctors.doctorid=users.userid
+    SELECT DISTINCT requests.*,
+    users.username,
+     users.useremail,
+      users.gender
+        FROM requests,users,doctors 
+        WHERE requests.requesting = users.userid and
+        doctors.doctorid=users.role
     ");
     $SORGU->execute();
     $talepler = $SORGU->fetchAll(PDO::FETCH_ASSOC);
