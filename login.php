@@ -84,6 +84,7 @@ if (isset($_POST['form_email'])) {
                      $_SESSION['adsoyad'] = $row['username']; // Kullanıcının adını al
                      $_SESSION['id'] = $row['userid']; // Kullanıcının ID'sini al
                      $_SESSION['rol'] = $row['role']; // Kullanıcının ROL'ünü al
+                     $_SESSION['iddoctor'] = $row['doctorid']; // Kullanıcının ROL'ünü al
                     header("location: index.php");
                     die();    
                  }  

@@ -10,14 +10,18 @@ require 'loginControl.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
+    
   <?php
   require_once('navbar.php');
 ?>
+  <h3 class="text-center text-muted mt-3">Name: <?php echo $_SESSION['adsoyad']; ?></h3>
   <div class="container">
 <div class="row">
   <div class="col-6">
   <h1 class="text-danger">Doctors</h1>
+  <?php if ($_SESSION['rol'] == 4) { ?>
   <a href='requestManagement.php' class='btn btn-danger'>Request list</a>
+  <?php } ?>
   <?php
 require_once 'db.php';
 
@@ -28,7 +32,7 @@ $doctors = $SORGU->fetchAll(PDO::FETCH_ASSOC);
 foreach($doctors as $doctor){
   echo"
   <div class='card mt-3' style='width: 18rem;'>
-  <img src='uploads/{$doctor['doctorimg']}' class='card-img-top' alt='...'>
+  <img src='uploads/{$doctor['doctorimg']}' loading='lazy' class='card-img-top' alt='...'>
   <div class='card-body'>
     <h5 class='card-title'>{$doctor['doctorjob']}</h5>
     <p class='card-text'>{$doctor['doctorname']}</p>
@@ -37,10 +41,11 @@ foreach($doctors as $doctor){
     <li class='list-group-item'>{$doctor['doctorabout']}</li>
     <li class='list-group-item'>{$doctor['doctoremail']}</li>
     <li class='list-group-item'>{$doctor['doctorphone']}</li>
+    <a href='reqMan.php?id={$doctor['doctorid']}' class='card-link btn btn-info btn-sm'>Req Management</a>
   </ul>
   <div class='card-body'>
   <a href='doctor.php?id={$doctor['doctorid']}' class='card-link btn btn-danger'>Doctor Cv</a>
-  <a href='request.php' class='card-link btn btn-success'>Appointment</a>
+  <a href='request.php?id={$doctor['doctorid']}' class='card-link btn btn-success'>Appointment</a>
   </div>
 </div>
   
@@ -52,6 +57,7 @@ foreach($doctors as $doctor){
 
 </div>
 </div>
+<!-- Admin doctor ekleme kısmı -->
 <?php if ($_SESSION['rol'] == 2) { ?>
 <div class="row justify-content-center mt-3">
   <div class="col-6">

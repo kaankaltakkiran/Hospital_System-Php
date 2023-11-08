@@ -53,12 +53,14 @@ if (isset($_POST['form_request'])) {
           SET request = :form_request,
           requesting = :talepeden, 
           priority = :form_priority,
+          reqdoctor=:sendreqdoctor,
           status = 0
           ";
   $SORGU = $DB->prepare($sql);
 
   $SORGU->bindParam(':form_request',  $_POST['form_request']);
    $SORGU->bindParam(':talepeden', $_SESSION['id']); 
+   $SORGU->bindParam(':sendreqdoctor',$_GET['id']); 
   $SORGU->bindParam(':form_priority', $_POST['form_priority']);
 
   $SORGU->execute();
