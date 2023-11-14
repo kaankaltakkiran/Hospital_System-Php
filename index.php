@@ -17,7 +17,6 @@ require 'loginControl.php';
   <h3 class="text-center text-muted mt-3">Name: <?php echo $_SESSION['adsoyad']; ?></h3>
   <div class="container">
 <div class="row">
-  <div class="col-6">
   <h1 class="text-danger">Doctors</h1>
   <?php if ($_SESSION['rol'] == 4) { ?>
   <a href='requestManagement.php' class='btn btn-danger'>Request list</a>
@@ -31,6 +30,7 @@ $doctors = $SORGU->fetchAll(PDO::FETCH_ASSOC);
 
 foreach($doctors as $doctor){
   echo"
+  <div class='col-md-4 mb-3'>
   <div class='card mt-3' style='width: 18rem;'>
   <img src='uploads/{$doctor['doctorimg']}' loading='lazy' class='card-img-top' alt='...'>
   <div class='card-body'>
@@ -48,13 +48,13 @@ foreach($doctors as $doctor){
   <a href='request.php?id={$doctor['doctorid']}' class='card-link btn btn-success'>Appointment</a>
   </div>
 </div>
+</div>
   
   
   ";
 }
 
   ?>
-
 </div>
 </div>
 <!-- Admin doctor ekleme kısmı -->
