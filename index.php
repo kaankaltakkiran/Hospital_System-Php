@@ -1,4 +1,5 @@
 <?php
+$activePage='index';
 require 'loginControl.php';
 ?>
 <!doctype html>
@@ -14,12 +15,12 @@ require 'loginControl.php';
   <?php
   require_once('navbar.php');
 ?>
-  <h3 class="text-center text-muted mt-3">Name: <?php echo $_SESSION['adsoyad']; ?></h3>
   <div class="container">
 <div class="row">
+<?php if ($_SESSION['rol'] != 3) { ?>
+  <h3 class="text-center text-muted mt-3">Name: <?php echo $_SESSION['adsoyad']; ?></h3>
+
   <h1 class="text-danger">Doctors</h1>
-  <?php if ($_SESSION['rol'] == 4) { ?>
-  <a href='requestManagement.php' class='btn btn-danger'>Request list</a>
   <?php } ?>
   <?php
 require_once 'db.php';
@@ -27,8 +28,29 @@ require_once 'db.php';
 $SORGU = $DB->prepare("SELECT * FROM doctors");
 $SORGU->execute();
 $doctors = $SORGU->fetchAll(PDO::FETCH_ASSOC);
-
+/* if ($_SESSION['iddoctor']==$doctor['doctorid']) {
+} */
 foreach($doctors as $doctor){
+  //! Giriş yapan doktorun bilgilerini gösterme
+  if($_SESSION['iddoctor']==$doctor['doctorid']){
+  echo"
+<div class='col-6'>
+<h1 class='text-danger'>Doctor</h1>
+<h3>Unit: {$doctor['doctorjob']}</h3>
+<h6>Doctor Name: {$doctor['doctorname']}</h6>
+<p>Doctor About: {$doctor['doctorabout']}</p>
+<p>Doctor Email: {$doctor['doctoremail']}</p>
+<p>Doctor Phone: {$doctor['doctorphone']}</p>
+</div>
+<div class='col-6'>
+<img src='uploads/{$doctor['doctorimg']}' class='img-fluid mt-3' alt='...'>
+</div>
+</div>
+</div>
+";
+}
+//! Kullanıcı giriş yapmışsa(admin de görüyor doktorlar kısmını)
+elseif($_SESSION['rol']==1 || $_SESSION['rol']==2){
   echo"
   <div class='col-md-4 mb-3'>
   <div class='card mt-3' style='width: 18rem;'>
@@ -37,33 +59,29 @@ foreach($doctors as $doctor){
     <h5 class='card-title'>{$doctor['doctorjob']}</h5>
     <p class='card-text'>{$doctor['doctorname']}</p>
   </div>
-  <ul class='list-group list-group-flush'>
-    <li class='list-group-item'>{$doctor['doctorabout']}</li>
-    <li class='list-group-item'>{$doctor['doctoremail']}</li>
-    <li class='list-group-item'>{$doctor['doctorphone']}</li>
-    <a href='reqMan.php?id={$doctor['doctorid']}' class='card-link btn btn-info btn-sm'>Req Management</a>
-  </ul>
+
   <div class='card-body'>
   <a href='doctor.php?id={$doctor['doctorid']}' class='card-link btn btn-danger'>Doctor Cv</a>
   <a href='request.php?id={$doctor['doctorid']}' class='card-link btn btn-success'>Appointment</a>
   </div>
 </div>
 </div>
-  
-  
   ";
 }
-
+}
   ?>
 </div>
 </div>
+<!-- <ul class='list-group list-group-flush'>
+    <li class='list-group-item'>{$doctor['doctorabout']}</li>
+    <li class='list-group-item'>{$doctor['doctoremail']}</li>
+    <li class='list-group-item'>{$doctor['doctorphone']}</li>
+  </ul> -->
 <!-- Admin doctor ekleme kısmı -->
 <?php if ($_SESSION['rol'] == 2) { ?>
 <div class="row justify-content-center mt-3">
   <div class="col-6">
-
 <form method="POST" enctype="multipart/form-data">
-
     <div class="form-floating mb-3">
   <input type="text" name="form_doctorname" class="form-control">
   <label>Doctor Name</label>

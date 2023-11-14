@@ -1,3 +1,6 @@
+<?php
+$activePage='register';
+?>
 <!doctype html>
 <html lang="en">
   <head>
