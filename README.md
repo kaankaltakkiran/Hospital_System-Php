@@ -6,6 +6,18 @@
 - [ ] Projedeki db.php dosyasındaki bilgiler doğru şekilde doldurulur.
 - [ ] Örnek resim yüklemek için gerekli olan resimler projede mevcutttur.
 - [X] Kullanıma hazır.
+      
+## Kullanıcı Bilgileri
+Normal kullanıcısı= email= ahmet@gmail.com password= 123
+
+Doctor 1 kullanıcısı= email= doctor1@gmail.com password= 123
+
+Doctor 2 kullanıcısı= email= doctor2@gmail.com password= 123
+
+Doctor 3 kullanıcısı= email= doctor3@gmail.comm password= 123
+
+Admin kullanıcısısı= email= admin@gmail.com password= admin
+
 
  ## Yapılan İyileştirmeler?
 - [X] Frontend hataları giderildi.
