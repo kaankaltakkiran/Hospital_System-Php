@@ -49,8 +49,8 @@ foreach($doctors as $doctor){
 </div>
 ";
 }
-//! Kullanıcı giriş yapmışsa(admin de görüyor doktorlar kısmını)
-elseif($_SESSION['rol']==1 || $_SESSION['rol']==2){
+//! Kullanıcı giriş yapmışsa
+elseif($_SESSION['rol']==1){
   echo"
   <div class='col-md-4 mb-3'>
   <div class='card mt-3' style='width: 18rem;'>
@@ -59,10 +59,23 @@ elseif($_SESSION['rol']==1 || $_SESSION['rol']==2){
     <h5 class='card-title'>{$doctor['doctorjob']}</h5>
     <p class='card-text'>{$doctor['doctorname']}</p>
   </div>
-
   <div class='card-body'>
   <a href='doctor.php?id={$doctor['doctorid']}' class='card-link btn btn-danger'>Doctor Cv</a>
   <a href='request.php?id={$doctor['doctorid']}' class='card-link btn btn-success'>Appointment</a>
+  </div>
+</div>
+</div>
+  ";
+}
+//! Doktor giriş yapmışsa
+elseif($_SESSION['rol']==2){
+  echo"
+  <div class='col-md-4 mb-3'>
+  <div class='card mt-3' style='width: 18rem;'>
+  <img src='uploads/{$doctor['doctorimg']}' loading='lazy' class='card-img-top' alt='...'>
+  <div class='card-body'>
+    <h5 class='card-title'>{$doctor['doctorjob']}</h5>
+    <p class='card-text'>{$doctor['doctorname']}</p>
   </div>
 </div>
 </div>

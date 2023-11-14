@@ -53,6 +53,7 @@ INSERT INTO `users` (`userid`, `username`, `useremail`, `userpassword`, `userpho
 (3,	'Kaan Kaltakkıran',	'kaan_fb_aslan@hotmail.com',	'$2y$10$T87vsn8EpTn5ce2pL5yzCuvuAwXpK6GU1yfThOXHeTjn3A9OvZA92',	'05076600884',	'Male',	1,	0),
 (4,	'Ayşe Yılmaz',	'ayse@gmail.com',	'$2y$10$aXLjTK3W9J7Y4GFUSSLOy.unnoIHG/dA9RXJ5RPWCo1RkVqvUvyLy',	'05067439531',	'Female',	1,	0),
 (5,	'Ahmet Yılmaz',	'ahmet@gmail.com',	'$2y$10$BfFM7uHtL8hW5psiRhioxeK8ayC7DFBht8FVmlLxAqbB3LIKJcDRG',	'05043324830',	'Male',	1,	0),
-(6,	'Admin',	'admin@gmail.com',	'$2y$10$2epr7eCmt7V3BFUN/mKmLeJDpiWt.WLikDsrHgXdYj/gv1dMwUtfG',	'05076600884',	'Male',	2,	0);
+(6,	'Admin',	'admin@gmail.com',	'$2y$10$2epr7eCmt7V3BFUN/mKmLeJDpiWt.WLikDsrHgXdYj/gv1dMwUtfG',	'05076600884',	'Male',	2,	0),
+(7,	'Doctor 3',	'doctor3@gmail.com',	'$2y$10$41INQTU2cIhDvDdba/60peGg2uW70KTvf50osLZDlquywEjKcwtK.',	'05063490231',	'Female',	3,	3);
 
--- 2023-11-14 09:27:25
+-- 2023-11-14 09:35:49
