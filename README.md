@@ -26,5 +26,5 @@ Admin kullanıcısısı= email= admin@gmail.com password= admin
 
       
 ## Site Resimleri
- https://github.com/kaankaltakkiran/php_video
+https://github.com/kaankaltakkiran/php_image
 
