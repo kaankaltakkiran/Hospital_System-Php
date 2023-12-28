@@ -1,4 +1,4 @@
-﻿## Hospital System Php  
+﻿# Hospital System Php  
  
  ## Proje nasıl kullanılır?
 - [ ] Proje clone edilir.
@@ -8,15 +8,14 @@
 - [X] Kullanıma hazır.
       
 ## Kullanıcı Bilgileri
-Normal kullanıcısı= email= ahmet@gmail.com password= 123
 
-Doctor 1 kullanıcısı= email= doctor1@gmail.com password= 123
-
-Doctor 2 kullanıcısı= email= doctor2@gmail.com password= 123
-
-Doctor 3 kullanıcısı= email= doctor3@gmail.comm password= 123
-
-Admin kullanıcısısı= email= admin@gmail.com password= admin
+| Users               |Email                          |Password                         |
+|----------------|-------------------------------|-----------------------------|
+|User Ahmet           |`ahmet@gmail.com`              |`123`          |
+|Doctor 1           |`doctor1@gmail.com`                 |`123`          |
+|Doctor 2           |`doctor2@gmail.com`              |`123`           |
+|Doctor 3           |`doctor3@gmail.com`             |`123`
+|Admin               |`admin@gmail.com`             |`admin`
 
 
  ## Yapılan İyileştirmeler?
@@ -26,5 +25,5 @@ Admin kullanıcısısı= email= admin@gmail.com password= admin
 
       
 ## Site Resimleri
-https://github.com/kaankaltakkiran/php_image
+https://github.com/kaankaltakkiran/php-proje-resimleri/tree/main/hospital%20system%20resimler
 
