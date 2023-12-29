@@ -25,5 +25,4 @@
 
       
 ## Site Resimleri
-https://github.com/kaankaltakkiran/php-proje-resimleri/tree/main/hospital%20system%20resimler
-
+https://github.com/kaankaltakkiran/php-proje-resimleri/tree/main/hospital_system_resimler
